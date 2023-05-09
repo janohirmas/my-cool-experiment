@@ -1,0 +1,38 @@
+
+{{ block content }}
+
+<!-- html -->
+<div class="content-wrapper">
+    <div class="cell"> {{ iNumber1 }} </div>
+    <div class="cell"> + </div>
+    <div class="cell"> {{ iNumber2 }} </div>
+    <div class="cell"> = </div>
+    <input class="cell input" type="text" id="iDec" name="iDec">
+</div>
+
+<input type="hidden" id="dRT" name="dRT">
+<button type="button" onclick="submitAnswer()"> 
+    Continue
+</button>
+
+{{ endblock }}
+
+{{ block scripts }}
+<script>
+    var tStart = new Date().getTime();
+    
+    function submitAnswer() {
+        // Save the RT 
+        let tEnd = new Date().getTime();
+        document.getElementById('dRT').value = tEnd - tStart;
+        // Submit the form 
+        document.getElementById('form').submit();
+    }
+</script>
+{{ endblock }}
+
+{{ block styles }}
+<style>
+
+</style>
+{{ endblock }}
